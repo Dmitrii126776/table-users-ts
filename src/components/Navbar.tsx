@@ -6,7 +6,9 @@ const Navbar = () => {
         <div>
             <nav className="navbar fixed-top navbar-expand-lg bg-light">
                 <div className="container-fluid">
-                    <a className="navbar-brand" href="/navbar">Navbar</a>
+                    <a className="navbar-brand" href="https://client-mern-auth.netlify.app"
+                       target="_blank" rel="noopener noreferrer"
+                    >ClientApp</a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02"
                             aria-expanded="false" aria-label="Toggle navigation">
