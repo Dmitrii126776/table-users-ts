@@ -5,11 +5,22 @@
     font-family: Ubuntu, sans-serif;
 }
 
+:root {
+    --primary-orange: #f9ab00;
+}
+
 h1, h2, h3, h4 {
     margin-bottom: 0;
 }
 
-label{
+label {
     margin-left: 10px;
     color: gray;
+}
+
+.nav-link.active {
+    /*border-bottom: 3px solid var(--primary-orange);*/
+    border-bottom: 3px solid orange;
+    font-size: 17px;
+    color: orange !important;
 }

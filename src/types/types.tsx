@@ -5,10 +5,24 @@ export interface IAddress {
     zipcode: string;
 }
 
-export interface IUser{
-    id:number;
-    name:string;
-    email:string;
-    address:IAddress;
+export interface ICompany {
+    name: string;
+    catchPhrase: string;
+    bs: string;
 }
 
+export interface IUser {
+    id: number;
+    name: string;
+    email: string;
+    address: IAddress;
+    company: ICompany;
+}
+
+export interface IComment {
+    postId: number;
+    id: number;
+    name: string;
+    email: string;
+    body: string;
+}

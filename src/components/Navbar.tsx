@@ -1,7 +1,14 @@
-import React from 'react';
-
+import React, {useEffect, useState} from 'react';
+import {useLocation} from 'react-router-dom';
 
 const Navbar = () => {
+    const location = useLocation();
+    const [activeLink, setActiveLink] = useState('');
+
+    useEffect(() => {
+        setActiveLink(location.pathname);
+    }, [location]);
+
     return (
         <div>
             <nav className="navbar fixed-top navbar-expand-lg bg-light">
@@ -17,10 +24,26 @@ const Navbar = () => {
                     <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <a className="nav-link active" aria-current="page" href="/">Home</a>
+                                <a className={`nav-link ${activeLink === "/" ? "active" : ""}`} href="/">
+                                    Home
+                                </a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="/users">Users</a>
+                                <a className={`nav-link ${activeLink === "/users" ? "active" : ""}`} href="/users">
+                                    Users
+                                </a>
+                            </li>
+                            <li className="nav-item">
+                                <a className={`nav-link ${activeLink === "/comments" ? "active" : ""}`}
+                                   href="/comments">
+                                    Comments
+                                </a>
+                            </li>
+                            <li className="nav-item">
+                                <a className={`nav-link ${activeLink === "/companies" ? "active" : ""}`}
+                                   href="/companies">
+                                    Companies
+                                </a>
                             </li>
                         </ul>
                         <form className="d-flex" role="search">

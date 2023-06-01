@@ -1,19 +1,21 @@
-import React, {useEffect, useState} from 'react';
-import UserList from "./components/UserList";
-import {IUser} from "./types/types";
+import React, {JSX, useEffect, useState} from 'react';
+import UserList from "./components/users/UserList";
+import {IComment, IUser} from "./types/types";
 import axios from "axios";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
-import UserItemPage from "./components/UserItemPage";
+import UserItemPage from "./components/users/UserItemPage";
+import CommentsList from "./components/comments/CommentsList";
+import CommentItemPage from "./components/comments/CommentItemPage";
+import CompaniesList from "./components/companies/CompaniesList";
 
-function App() {
+
+function App(): JSX.Element {
 
     const [users, setUsers] = useState<IUser[]>([])
+    const [comments, setComments] = useState<IComment[]>([])
 
-    useEffect(() => {
-        getUsers()
-    }, [])
 
     // async function getUsers() {
     //     try {
@@ -34,13 +36,17 @@ function App() {
         }
     }
 
-    // function getUsers() {
-    //     fetch('https://jsonplaceholder.typicode.com/users')
-    //         .then(response => response.json())
-    //         .then(data => setUsers(data))
-    //         .catch(error => alert(error));
-    // }
+    function getComments() {
+        fetch('https://jsonplaceholder.typicode.com/comments?_limit=30')
+            .then(response => response.json())
+            .then(data => setComments(data))
+            .catch(error => alert(error));
+    }
 
+    useEffect(() => {
+        getUsers()
+        getComments()
+    }, [])
     return (
         <BrowserRouter>
             <div>
@@ -49,6 +55,9 @@ function App() {
                     <Route path="/" element={<Home/>}/>
                     <Route path="/users" element={<UserList users={users}/>}/>
                     <Route path="/users/:id" element={<UserItemPage/>}/>
+                    <Route path="/comments" element={<CommentsList comments={comments}/>}/>
+                    <Route path="/comments/:id" element={<CommentItemPage/>}/>
+                    <Route path="/companies" element={<CompaniesList users={users}/>}/>
                 </Routes>
             </div>
         </BrowserRouter>
