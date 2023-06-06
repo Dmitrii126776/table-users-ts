@@ -11,7 +11,7 @@ const UserList: React.FC<UserListProps> = (props) => {
     const navigate = useNavigate()
 
     const [currentPage, setCurrentPage] = useState<number>(1)
-    const [rowsPerPage, setRowsPerPage] = useState<number>(3)
+    const [rowsPerPage, setRowsPerPage] = useState<number>(9)
 
     // Logic to calculate the number of pages needed
     const totalPages = Math.ceil(users.length / rowsPerPage)
@@ -109,9 +109,9 @@ const UserList: React.FC<UserListProps> = (props) => {
                             <select className="form-select" value={rowsPerPage}
                                     style={{maxWidth: "100px", marginLeft: '20px'}}
                                     onChange={(e) => handleRowsPerPageChange(parseInt(e.target.value))}>
-                                <option value="3">3</option>
-                                <option value="5">5</option>
                                 <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
                             </select>
                         </div>
                     </div>

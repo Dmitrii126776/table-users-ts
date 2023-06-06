@@ -45,6 +45,12 @@ const Navbar = () => {
                                     Companies
                                 </a>
                             </li>
+                            <li className="nav-item">
+                                <a className={`nav-link ${activeLink === "/posts&photos" ? "active" : ""}`}
+                                   href="/posts&photos">
+                                    Posts&Photos
+                                </a>
+                            </li>
                         </ul>
                         <form className="d-flex" role="search">
                             <input className="form-control me-2" type="search" placeholder="Search"
