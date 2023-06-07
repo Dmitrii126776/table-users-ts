@@ -10,6 +10,7 @@ import CommentsList from "./components/comments/CommentsList";
 import CommentItemPage from "./components/comments/CommentItemPage";
 import CompaniesList from "./components/companies/CompaniesList";
 import PostsPhotosList from "./components/comments/PostsPhotosList";
+import CompanyItemPage from "./components/companies/CompanyItemPage";
 
 
 function App(): JSX.Element {
@@ -72,6 +73,7 @@ function App(): JSX.Element {
                     <Route path="/comments" element={<CommentsList comments={comments}/>}/>
                     <Route path="/comments/:id" element={<CommentItemPage/>}/>
                     <Route path="/companies" element={<CompaniesList users={users}/>}/>
+                    <Route path="/companies/:id" element={<CompanyItemPage/>}/>
                     <Route path="/posts&photos" element={<PostsPhotosList posts={posts} photos={photos}/>}/>
                 </Routes>
             </div>

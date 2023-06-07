@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {IUser} from "../../types/types";
 import Pagination from "../Pagination";
+import {useNavigate} from "react-router-dom";
 
 interface CompaniesListProps {
     users: IUser[];
@@ -20,6 +21,7 @@ const CompaniesList: React.FC<CompaniesListProps> = (props) => {
 
     const [currentPage, setCurrentPage] = useState<number>(1);
     const [rowsPerPage, setRowsPerPage] = useState<number>(9);
+    const navigate = useNavigate()
 
     const totalPages = Math.ceil(users.length / rowsPerPage);
 
@@ -38,7 +40,8 @@ const CompaniesList: React.FC<CompaniesListProps> = (props) => {
 
     function handleRowClick(user: IUser) {
         const id = user.id
-        console.log(id)
+        navigate(`/companies/${id}`)
+       // console.log(id)
     }
 
     return (
