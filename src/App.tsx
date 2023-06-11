@@ -9,8 +9,9 @@ import UserItemPage from "./components/users/UserItemPage";
 import CommentsList from "./components/comments/CommentsList";
 import CommentItemPage from "./components/comments/CommentItemPage";
 import CompaniesList from "./components/companies/CompaniesList";
-import PostsPhotosList from "./components/comments/PostsPhotosList";
+import PostsPhotosList from "./components/posts&photos/PostsPhotosList";
 import CompanyItemPage from "./components/companies/CompanyItemPage";
+import PostsPhotosItemPage from "./components/posts&photos/PostsPhotosItemPage";
 
 
 function App(): JSX.Element {
@@ -75,6 +76,7 @@ function App(): JSX.Element {
                     <Route path="/companies" element={<CompaniesList users={users}/>}/>
                     <Route path="/companies/:id" element={<CompanyItemPage/>}/>
                     <Route path="/posts&photos" element={<PostsPhotosList posts={posts} photos={photos}/>}/>
+                    <Route path="/posts&photos/:id" element={<PostsPhotosItemPage/>}/>
                 </Routes>
             </div>
         </BrowserRouter>
