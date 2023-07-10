@@ -23,17 +23,20 @@ const Home = () => {
         setData([]);
     };
 
-
     return (
         <div style={{paddingTop: '60px'}}>
-            <h1>Home Page</h1>
-            <input
-                type="file"
-                accept=".xlsx, .xls"
-                onChange={handleFileUpload}
-            />
-            <button onClick={handleDelete}>Delete File</button>
-
+            {/*<div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>*/}
+            <div className="d-flex flex-column align-items-center">
+                <h2 className="m-3">Default file input example</h2>
+                {/*<label htmlFor="formFile" className="form-label">Default file input example</label>*/}
+                <div className="mb-3 justify-content-center" style={{display: "flex", alignItems: "center"}}>
+                    <div style={{maxWidth: "300px", marginRight: "30px"}}>
+                        <input className="form-control" type="file" accept=".xlsx, .xls" id="formFile"
+                               onChange={handleFileUpload}/>
+                    </div>
+                    <button type="button" className="btn btn-secondary" onClick={handleDelete}>Delete File</button>
+                </div>
+            </div>
             {data.length > 0 && (
                 <table className="table">
                     <thead>
@@ -57,9 +60,6 @@ const Home = () => {
                     </tbody>
                 </table>
             )}
-
-            <br/><br/>
-            ... webstylepress ...
         </div>
     );
 };
