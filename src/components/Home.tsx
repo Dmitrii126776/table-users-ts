@@ -1,9 +1,32 @@
 import React from 'react';
 import {useState} from "react";
 import * as XLSX from "xlsx";
+import Pagination from "./Pagination";
 
 const Home = () => {
     const [data, setData] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [rowsPerPage, setRowsPerPage] = useState(5);
+
+    // Logic to calculate the number of pages needed
+    const totalPages = Math.ceil(data.length / rowsPerPage);
+
+    // Logic to calculate the number of pages needed
+    const rowsForCurrentPage = data.slice(
+        (currentPage - 1) * rowsPerPage,
+        currentPage * rowsPerPage
+    );
+    // console.log(comments.slice((2 - 1) * 5, 2 * 5))
+    // Handlers to change the current page and rows per page
+
+    const handlePageChange = (page: number) => {
+        setCurrentPage(page);
+    };
+
+    const handleRowsPerPageChange = (rows: number) => {
+        setRowsPerPage(rows);
+        setCurrentPage(1); // Reset current page when rows per page changes
+    };
 
     const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
         const reader = new FileReader();
@@ -47,7 +70,7 @@ const Home = () => {
                     </tr>
                     </thead>
                     <tbody>
-                    {data.map((row, index) => (
+                    {rowsForCurrentPage.map((row, index) => (
                         <tr key={index}>
                             {/*{Object.values(row).map((value: any, index) => (*/}
                             {/*    <td key={index}>{value}</td>*/}
@@ -60,6 +83,14 @@ const Home = () => {
                     </tbody>
                 </table>
             )}
+            <div style={{backgroundColor: "lightgrey", display: "flex", justifyContent: "space-evenly"}}>
+                <Pagination
+                    currentPage={currentPage}
+                    totalPages={totalPages}
+                    handlePageChange={handlePageChange}
+                    rowsPerPage={rowsPerPage}
+                    handleRowsPerPageChange={handleRowsPerPageChange}/>
+            </div>
         </div>
     );
 };

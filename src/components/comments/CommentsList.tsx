@@ -17,7 +17,7 @@ const CommentsList: React.FC<CommentsListProps> = (props) => {
     // Logic to calculate the number of pages needed
     const totalPages = Math.ceil(comments.length / rowsPerPage);
 
-    // Logic to return the rows for the current page
+    // Logic to calculate the number of pages needed
     const rowsForCurrentPage = comments.slice(
         (currentPage - 1) * rowsPerPage,
         currentPage * rowsPerPage
