@@ -10,13 +10,10 @@ const Home = () => {
 
     const totalPages = Math.ceil(data.length / rowsPerPage);
 
-    // Logic to calculate the number of pages needed
     const rowsForCurrentPage = data.slice(
         (currentPage - 1) * rowsPerPage,
         currentPage * rowsPerPage
     );
-    // console.log(comments.slice((2 - 1) * 5, 2 * 5))
-    // Handlers to change the current page and rows per page
 
     const handlePageChange = (page: number) => {
         setCurrentPage(page);
