@@ -8,7 +8,6 @@ const Home = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [rowsPerPage, setRowsPerPage] = useState(5);
 
-    // Logic to calculate the number of pages needed
     const totalPages = Math.ceil(data.length / rowsPerPage);
 
     // Logic to calculate the number of pages needed
